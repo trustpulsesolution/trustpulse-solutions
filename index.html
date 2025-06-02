@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -52,26 +52,11 @@
     }
 
     nav .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      text-decoration: none;
-    }
-    nav .logo img {
-      height: 38px;
-      width: auto;
-      border-radius: 8px;
-      display: inline-block;
-      vertical-align: middle;
-      background: #fff;
-    }
-    nav .logo .brand-text {
       font-weight: 800;
       font-size: 1.4rem;
       color: #14b8a6;
       letter-spacing: 2px;
       text-transform: uppercase;
-      line-height: 1;
     }
 
     nav ul {
@@ -295,12 +280,6 @@
         flex-direction: column;
         align-items: center;
       }
-      nav .logo .brand-text {
-        font-size: 1.1rem;
-      }
-      nav .logo img {
-        height: 32px;
-      }
     }
   </style>
 </head>
@@ -308,10 +287,7 @@
 
 <nav>
   <div class="container">
-    <a href="#" class="logo">
-      <img src="https://pplx-res.cloudinary.com/image/upload/v1748847715/user_uploads/67152846/9233cabc-9f95-4c3c-a0f9-6207a2fca1cd/logo.jpg" alt="TrustPulse Logo">
-      <span class="brand-text">TrustPulse</span>
-    </a>
+    <div class="logo">TrustPulse</div>
     <ul>
       <li><a href="#about" class="active">About</a></li>
       <li><a href="#services">Services</a></li>
