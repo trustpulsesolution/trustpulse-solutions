@@ -1,49 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>TrustPulse Solutions – Real Reviews. Real Growth.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TrustPulse Solutions</title>
   <style>
-    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8f9fa; margin: 0; color: #222; }
-    .header { display: flex; align-items: center; padding: 40px 20px 20px 20px; background: #fff; border-bottom: 1px solid #eee; }
-    .logo { width: 80px; margin-right: 24px; }
-    .company { font-size: 2.2em; font-weight: bold; color: #2c3e50; }
-    .tagline { font-size: 1.2em; color: #2a6; margin-top: 6px; }
-    .container { max-width: 700px; margin: 40px auto; background: #fff; padding: 2em; border-radius: 10px; box-shadow: 0 2px 12px #eee; }
-    h2 { color: #234; margin-top: 1.5em; }
-    ul { margin: 1em 0 2em 1.5em; }
-    .cta { background: #2a6; color: #fff; padding: 14px 32px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; margin-top: 18px; }
-    .cta:hover { background: #1e4d3a; }
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+        sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #14b8a6;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #0f172a;
+      box-shadow: 0 2px 6px rgb(15 23 42 / 0.2);
+      z-index: 1000;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+    }
+    nav .logo img {
+      height: 38px;
+      width: auto;
+      border-radius: 8px;
+      display: inline-block;
+      vertical-align: middle;
+      background: #fff;
+    }
+    nav .logo .brand-text {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #14b8a6;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: #e0e7ff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #14b8a6;
+    }
+
+    /* Hero Section */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #14b8a6 100%);
+      color: white;
+      text-align: center;
+      padding: 6rem 1rem 8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 70vh;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      max-width: 700px;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 1.4rem;
+      font-weight: 500;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      color: #d1fae5;
+      font-style: italic;
+    }
+
+    .btn-primary {
+      background-color: #14b8a6;
+      color: #0f172a;
+      padding: 0.9rem 2.2rem;
+      font-weight: 700;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgb(20 184 166 / 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: background-color 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background-color: #0f766e;
+      color: white;
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 0;
+    }
+
+    h2.section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      color: #0f172a;
+      margin-bottom: 3rem;
+      letter-spacing: 1.5px;
+    }
+
+    /* About Section */
+    #about .content {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      text-align: center;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    /* Services Section */
+    #services .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgb(0 0 0 / 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .card:hover {
+      box-shadow: 0 15px 25px rgb(20 184 166 / 0.3);
+      transform: translateY(-5px);
+    }
+
+    .card svg {
+      width: 50px;
+      height: 50px;
+      fill: #14b8a6;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      color: #0f172a;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #475569;
+    }
+
+    /* Pricing Section */
+    #pricing .pricing-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 10px 20px rgb(0 0 0 / 0.06);
+      padding: 2.5rem 2rem;
+      width: 300px;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      box-shadow: 0 15px 30px rgb(20 184 166 / 0.35);
+    }
+
+    .pricing-card h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    .pricing-card .price {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #14b8a6;
+      margin-bottom: 1.3rem;
+    }
+
+    .pricing-card p {
+      color: #64748b;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Contact Section */
+    #contact .contact-info {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #334155;
+    }
+    #contact .contact-info a {
+      color: #14b8a6;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
     @media (max-width: 600px) {
-      .container { padding: 1em; }
-      .header { flex-direction: column; align-items: flex-start; }
-      .logo { margin-bottom: 12px; }
+      header h1 {
+        font-size: 2.2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      nav ul {
+        gap: 1rem;
+      }
+      .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav .logo .brand-text {
+        font-size: 1.1rem;
+      }
+      nav .logo img {
+        height: 32px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <img src="logo.jpg" alt="TrustPulse Solutions Logo" class="logo">
-    <div>
-      <div class="company">TrustPulse Solutions</div>
-      <div class="tagline">Real Reviews. Real Growth.</div>
+
+<nav>
+  <div class="container">
+    <a href="#" class="logo">
+      <img src="https://pplx-res.cloudinary.com/image/upload/v1748847715/user_uploads/67152846/9233cabc-9f95-4c3c-a0f9-6207a2fca1cd/logo.jpg" alt="TrustPulse Logo">
+      <span class="brand-text">TrustPulse</span>
+    </a>
+    <ul>
+      <li><a href="#about" class="active">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <h1>Real Reviews. Real Growth.</h1>
+  <p>Helping businesses build credibility & grow online with genuine customer feedback and expert Google My Business services.</p>
+  <a href="https://wa.me/18255737695" class="btn-primary" target="_blank" rel="noopener">Contact Us on WhatsApp</a>
+</header>
+
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About TrustPulse Solutions</h2>
+    <div class="content">
+      TrustPulse Solutions helps businesses build credibility and grow online through authentic customer feedback and optimized Google My Business (GMB) profiles. We specialize in generating genuine reviews, cleaning up fake or harmful content, and improving your local visibility with expertly managed GMB listings. Our approach is transparent, human-centered, and designed for long-term trust.
     </div>
   </div>
+</section>
+
+<section id="services" style="background:#e0f2f1;">
   <div class="container">
-    <p>
-      <strong>TrustPulse Solutions</strong> helps businesses build credibility and grow online through authentic customer feedback and optimized Google My Business (GMB) profiles. We specialize in generating <strong>genuine reviews</strong>, cleaning up fake or harmful content, and improving your local visibility with expertly managed GMB listings. Our approach is transparent, human-centered, and designed for long-term trust.
-    </p>
-    <h2>Our Services</h2>
-    <ul>
-      <li>Verified customer review campaigns</li>
-      <li>GMB profile optimization</li>
-      <li>Local SEO enhancements</li>
-      <li>Reputation management</li>
-      <li>Competitor GMB analysis</li>
-      <li>Ongoing review monitoring and alerts</li>
-    </ul>
-    <button class="cta">Contact Us</button>
+    <h2 class="section-title">Our Services</h2>
+    <div class="cards">
+      <div class="card" title="Verified Customer Review Campaigns">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm5 7-6 6-3-3 1.41-1.41L11 11.17l4.59-4.59L17 8z"/></svg>
+        <h3>Verified Review Campaigns</h3>
+        <p>Generate authentic customer reviews that build trust and improve online reputation.</p>
+      </div>
+      <div class="card" title="GMB Profile Optimization">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 6h16v12H4z" fill="none"/><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 14H4V8h16z"/></svg>
+        <h3>GMB Profile Optimization</h3>
+        <p>Enhance your Google My Business listing to attract local customers effectively.</p>
+      </div>
+      <div class="card" title="Local SEO Enhancements">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10h-3V7a1 1 0 0 0-2 0v3h-3a1 1 0 0 0 0 2h3v3a1 1 0 0 0 2 0v-3h3a1 1 0 0 0 0-2z"/></svg>
+        <h3>Local SEO Enhancements</h3>
+        <p>Improve your visibility in local search results to get found by nearby customers.</p>
+      </div>
+      <div class="card" title="Reputation Management">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3 9.24 3 10.91 3.81 12 5.09 13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <h3>Reputation Management</h3>
+        <p>Monitor, manage, and protect your online reputation with expert guidance.</p>
+      </div>
+      <div class="card" title="Competitor GMB Analysis">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm4 0h2v-2H7v2zm4 0h2v-2h-2v2zm4 0h2v-2h-2v2zm4 0h2v-2h-2v2z"/></svg>
+        <h3>Competitor GMB Analysis</h3>
+        <p>Analyze competitor listings and gain insights to outperform them locally.</p>
+      </div>
+      <div class="card" title="Ongoing Review Monitoring & Alerts">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        <h3>Review Monitoring & Alerts</h3>
+        <p>Stay updated with real-time notifications on new reviews and feedback.</p>
+      </div>
+    </div>
   </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <h2 class="section-title">Pricing</h2>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <h3>GMB Reviews</h3>
+        <div class="price">₹100 / review</div>
+        <p>Guaranteed genuine reviews with 1-month refill policy in case of drops.</p>
+      </div>
+      <div class="pricing-card">
+        <h3>GMB Listing Setup</h3>
+        <div class="price">₹3000 (one-time)</div>
+        <p>Complete Google My Business profile creation and optimization to boost your local presence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:#e0f2f1;">
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact-info">
+      <p>Have questions or want to get started? Reach out to us!</p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/18255737695" target="_blank" rel="noopener">+1 (825) 573-7695</a></p>
+      <p><strong>Email:</strong> <a href="mailto:trustpulsesolution@gmail.com">trustpulsesolution@gmail.com</a></p>
+      <p><strong>Location:</strong> Serving all India</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 TrustPulse Solutions. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
